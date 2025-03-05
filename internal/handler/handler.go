@@ -15,6 +15,13 @@ type Handler struct{
 	config *config.Config
 }
 
+func New(cfg *config.Config) *Handler {
+	return &Handler{
+		logger: loger.New(),
+		config: cfg,
+	}
+}
+
 func (h *Handler) createReverseProxy(target string) *httputil.ReverseProxy {
 	targetURL, err := url.Parse(target)
 	if err != nil {
