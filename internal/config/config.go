@@ -8,14 +8,14 @@ import (
 )
 
 type Url struct{
-    ServiceAddr string
-    UrlPrefix string
+    ServiceAddr string `toml:"service_addr"`
+    UrlPrefix string `toml:"url_prefix"`
 }
 
 type Config struct{
-    Port string
-    Host string
-    Urls []Url
+    Port string `toml:"port"`
+    Host string `toml:"host"`
+    Urls []Url `toml:"urls"`
 }
 
 func New(path string) (*Config, error) {
